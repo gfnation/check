@@ -13,12 +13,7 @@
 -->
     
 <div id="container">    
-    <div class="URL" ng-app="myApp" ng-controller="myCtrl">
-        <p>The url of this page is:</p>
-        <h3>{{myUrl}}</h3>
-        
-        <!--Useful, but this is just to check if angular is working -->
-    </div>
+    
     
     <div id="client">
         <div class='header'>
@@ -28,8 +23,17 @@
     
         <div class="userList">
         <li class="list-group-item">Userlist, will be scrollable</li>
+            <li class="list-group-item">1st User</li>
+            <li class="list-group-item">2nd User</li>
+            <li class="list-group-item">3rd User</li>
         </div>
-            <div class="msg">
+        <!-- ng-app="chatApp" 
+                ng-controller="chatCtrl"-->
+        <!-- ng-repeat="x in feed" -->
+        <!-- ng-model="chatMe" -->
+        <!-- ng-click="???" -->
+            <div class="msg" ng-app="chatApp" ng-controller="chatCtrl">
+                
             <li class="list-group-item">First item</li>
             <li class="list-group-item">2nd item</li>
             <li class="list-group-item">3rd</li>
@@ -48,18 +52,29 @@
             <li class="list-group-item">16th</li>
             <li class="list-group-item">17th</li>
             <li class="list-group-item">18th</li>
+            <li class="list-group-item" ng-repeat="x in feed">{{x}}</li>
                 
                 
+               <input ng-model="chatMe" class="form-control input-sm" id="inputsm" type="text"> 
+                <button ng-click="addItem()" type="button" class="btn btn-primary btn-sm"id="sendbt" >Send</button>
             </div>
-        <div class="chatbar">
-            <button type="button" class="btn btn-primary btn-sm"id="sendbt">Send</button>
-                <div class="form-group">
-                    <input class="form-control input-sm" id="inputsm" type="text">
+                <!-- x in feed referrs to ng-repeat which mirror an an array at that location. -->
+        <div class="chatbar" ng-app="chatApp" ng-controller="chatCtrl">
+            <button ng-click="addItem()" type="button" class="btn btn-primary btn-sm"id="sendbt" >Send</button>
+                <div class="form-group" ng-app="chatApp" ng-controller="chatCtrl">
+                    <input ng-model="chatMe" class="form-control input-sm" id="inputsm" type="text">
                 </div>
         </div>
     </div> <!--Client -->
-    
+    <div class="URL" ng-app="myApp" ng-controller="myCtrl">
+        <p>The url of this page is:</p>
+        <h3>{{myUrl}}</h3>
+        
+        <!--Useful, but this is just to check if angular is working -->
+    </div>
 </div> <!--Container -->
+    
+    
     
   <!--Eventually styles will be separate. -->
     
@@ -104,16 +119,37 @@
             width:89%;
         }
     </style>
+        <!-- ng-app="chatApp" -->
+        <!-- ng-controller="chatCtrl"-->
+        <!-- ng-repeat="x in feed" -->
+        <!-- ng-model="chatMe" -->
+        <!-- ng-click="addItem()" -->
     
-    
-    
-    
-    <script>
-var app = angular.module('myApp', []);
+    <script>            
+        /* 
+        var app = angular.module('myApp', []);
 app.controller('myCtrl', function($scope, $location) {
     $scope.myUrl = $location.absUrl();
-});   
+});         
+        */
+        
+        
+var app = angular.module("chatApp", []); 
+app.controller("chatCtrl", function($scope) {
+    $scope.feed = ["Some Juice"];
+    $scope.addItem = function () {
+        $scope.feed.push($scope.chatMe);
+    }    
+});
+         
 </script>
+    
+    
+    
+    
+    
+   
+    
     
 </body>
 </html>
