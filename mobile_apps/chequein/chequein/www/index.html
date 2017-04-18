@@ -11,6 +11,7 @@
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
         <link rel="stylesheet" type="text/css" href="css/index.css">
+
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <title>chequein</title>
         <style>
@@ -28,16 +29,29 @@
                 margin: auto;
                 vertical-align: middle;
             }
+
+            div {
+    max-width: 500px;
+    margin:auto;
+    
+}
         </style>
     </head>
     <body>
+        <h1 style="color: red; Background: black"> ChequeIn</h1>
             <div id="miracle-grow-gradient">
                 <div class="container">
-                    <h3>The Home index page</h3>
-                    <p>This will link to other specific sites. </p>
-                    <button class="btn btn-lg btn-primary btn-block" type="submit">SubSite1</button>
-                    <button class="btn btn-lg btn-primary btn-block" type="submit">SubSite2</button>
-                    <button class="btn btn-lg btn-primary btn-block" type="submit">Subsite3</button>
+                    <div class="form-group">
+                    <label for="USERNAMEinput">Username</label>
+                    <input type="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Username">
+                    
+
+                </div>
+                    <div class="form-group">
+                        <label for="PASSinput">Password</label>
+                        <input type="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter password">
+                        <small id="emailHelp" class="form-text text-muted">Enter Password</small>
+                    </div>
                     <a href="/invited.html" class="btn btn-default btn-lg active" role="button">Invited? Click me</a>
                 </div> <!-- /container -->
             </div> <!-- /backgd -->
