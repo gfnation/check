@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <!--
+        Customize the content security policy in the meta tag below as needed. Add 'unsafe-inline' to default-src to enable inline JavaScript.
+        For details, see http://go.microsoft.com/fwlink/?LinkID=617521
+    -->
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+        
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <title>chequein</title>
+        <style>
+            body {
+            }
+
+            #miracle-grow-gradient {
+                background: -webkit-linear-gradient(90deg, #b6eae1 10%, #D2FBAD 90%); /* Chrome 10+, Saf5.1+ */
+                background: -moz-linear-gradient(90deg, #b6eae1 10%, #D2FBAD 90%); /* FF3.6+ */
+                background: linear-gradient(90deg, #b6eae1 10%, #D2FBAD 90%); /* W3C */
+            }
+
+            .container {
+                max-width: 500px;
+                margin: auto;
+                vertical-align: middle;
+            }
+        </style>
+    </head>
+    <body>
+            <div id="miracle-grow-gradient">
+                <div class="container">
+                    <h3>The Home index page</h3>
+                    <p>This will link to other specific sites. </p>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">SubSite1</button>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">SubSite2</button>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">Subsite3</button>
+                    <a href="/invited.html" class="btn btn-default btn-lg active" role="button">Invited? Click me</a>
+                </div> <!-- /container -->
+            </div> <!-- /backgd -->
+        
+
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="scripts/platformOverrides.js"></script>
+        <script type="text/javascript" src="scripts/index.js"></script>
+    </body>
+</html>
