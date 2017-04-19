@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> 
+    </head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    
+    <title>It's a Start</title>
+    
+<body>
+<!-- The hardest part about this file is what needs to be in Angular and what doesnt.
+        Bootstrap handles most of the responsiveness.
+-->
+    
+<div id="container">    
+    <div id="client">
+        <div class="userList">
+        <li class="list-group-item">Userlist, will be scrollable</li>
+        </div>
+            <div class="msg">
+            <li class="list-group-item">First item</li>
+            <li class="list-group-item">Second item</li>
+            <li class="list-group-item">Third item</li>
+            <li class="list-group-item">Fourth</li>
+            <li class="list-group-item">Fifth item</li>
+            <li class="list-group-item">Sixth</li>
+            <li class="list-group-item">Seventh item</li>
+            <li class="list-group-item">8th</li>
+            <li class="list-group-item">ninth item</li>
+            <li class="list-group-item">Tenth</li>
+            <li class="list-group-item">11th item</li>
+            <li class="list-group-item">12 item</li>
+            <li class="list-group-item">13</li>
+            <li class="list-group-item">14 item</li>
+            <li class="list-group-item">15</li>
+            <li class="list-group-item">16th item</li>
+            <li class="list-group-item">17</li>
+            <li class="list-group-item">18th item</li>
+                
+                
+            </div>
+        <div class="chatbar">
+            <button type="button" class="btn btn-primary btn-sm"id="sendbt">Send</button>
+                <div class="form-group">
+                    <input class="form-control input-sm" id="inputsm" type="text">
+                </div>
+        </div>
+    </div> <!--Client -->
+    
+</div> <!--Container -->
+    
+  <!--Eventually styles will be separate. -->
+    
+    <style> 
+        .URL{
+            margin: auto;
+            text-align: center;
+            }
+        #container{
+            
+            }
+        #client{
+            width:80%;
+            height:50%;
+            margin:auto;
+                }
+        .msg{
+            width:75%;
+            min-height: 600px;
+            max-height:600px;
+            overflow-y:scroll;
+            display:inline-block;
+            
+            }
+        .userList{
+            width:24%;
+            display:inline-block;
+            float:left;  
+            }
+        #sendbt
+        {
+            width:10%;
+            display:inline-block;
+            float:left;
+            padding-right:10px;
+        }
+        #inputsm
+        {
+            width:89%;
+        }
+    </style>
+    
+    
+    
+    
+    <script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope, $location) {
+    $scope.myUrl = $location.absUrl();
+});   
+</script>
+    
+</body>
+</html>
+ <!-- Data source 
+
+Modules
+directives: Extend HTML, Bind data
+scope: Js objects generated normally DATA 
+expressions: Linked to scoped 
+services
+
+Data bindings, when one changes, the other changes as well
+
+-->
+
