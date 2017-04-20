@@ -8,43 +8,46 @@ var sha256 = require("sha256");
 	Returns undefined if no user has been found or has not been matched
 */
 exports.user_login = function(connection, username, raw_password){
+	return new Promise(function(resolve, reject){
 		var query = "SELECT * FROM tb_users WHERE username=?";
 		connection.query(query, [username], function (err, rows, fields){
 			if (err) {
-				throw err;
+				reject(err);
 			} else {
 				rows.forEach(function(element){
 					var private_token = element['private_token'];
 					var hashed_password = element['password'];
 					var user_id = element['user_id'];
 					if (password_match(raw_password, private_token, password)) {
-						return user_id;
+						resolve(user_id);
 					}
 				});
 			}
-			return undefined;
+			resolve(undefined);
 		});
+	});
 };
 
-exports.user_create = function(connection, username, raw_password, account_type){
-	if (!username_exists(connection, username)) {
-		var private_token = generate_private_token();
-		var user_id = md5(private_token + raw_password);
-		var hashed_password = hash_password(raw_password, private_token);
+exports.user_create = function(connection, display_name, username, raw_password, account_type){
+	return username_exists(connection, username).then(function(result){
+		if (!result) {
+			var private_token = generate_private_token();
+			var user_id = md5(private_token + raw_password);
+			var hashed_password = hash_password(raw_password, private_token);
 
-		var query = "INSERT INTO tb_users (user_id, username, password, account_type, private_token)" +
-						"VALUES(?, ?, ?, ?, ?)"
+			var query = "INSERT INTO tb_users (user_id, displayname, username, password, account_type, private_token)" +
+							"VALUES(?, ?, ?, ?, ?, ?)"
 
-		connection.query(query, [user_id, username, hashed_password, account_type, private_token], 
-			function(err, rows, fields){
-			if (err) {
-				throw err;
-			} else {
-				return true;
-			}
-		});
-	};
-	return false;
+			connection.query(query, [user_id, display_name, username, hashed_password, account_type, private_token], 
+				function(err, rows, fields){
+				if (err) {
+					return Promise.reject(err);
+				} else {
+					return user_id;
+				}
+			});
+		};
+	});
 };
 
 /*
@@ -52,19 +55,20 @@ exports.user_create = function(connection, username, raw_password, account_type)
 	Returns true if username exists.
 */
 function username_exists(connection, username){
+	return new Promise(function(resolve, reject){
+		var query = "SELECT username FROM tb_users where username=?";
 
-	var query = "SELECT username FROM tb_users where username=?";
-
-	connection.query(query, [username], function(err, rows, fields){
-		if (err) {
-			throw err;
-		} else {
-			if (rows) {
-				return true;
-			};
-		}
+		connection.query(query, [username], function(err, rows, fields){
+			if (err) {
+				throw err;
+			} else {
+				if (rows) {
+					resolve(true);
+				};
+			}
+		});
+		resolve(false);
 	});
-	return false;
 }
 
 /**
