@@ -2,13 +2,15 @@ var express = require("express");
 var app = express();
 var path = require("path");
 var db_test = require("./tests/db_test.js");
+var mysql_db = require("./database/mysql_db.js");
+var user_auth = require("./database/user_auth.js");
 
 app.get("/", function(req, res){
 	res.send("Welcome to the website index. The server is running on port 8080.");
 });
 
-app.get("/dbtest/c", function(req, res){
-	res.send(db_test.test_conversation_create());
+app.get("/t/:test_id", function(req, res){
+	db_test.multi_test(req, res);
 });
 
 app.get("/invited.html", function(request, response) {
