@@ -17,6 +17,8 @@
     
     
     <div id="client">
+	
+            <div class="msg" ng-app="chatApp" ng-controller="chatCtrl">
         <div class='header'>
             <li class="list-group-item" style="text-align:center;">Header</li>   
             
@@ -33,7 +35,6 @@
         <!-- ng-repeat="x in feed" -->
         <!-- ng-model="chatMe" -->
         <!-- ng-click="???" -->
-            <div class="msg" ng-app="chatApp" ng-controller="chatCtrl">
                 
             <li class="list-group-item">First item</li>
             <li class="list-group-item">2nd item</li>
@@ -58,14 +59,16 @@
                 
                <input ng-model="chatMe" class="form-control input-sm" id="inputsm" type="text"> 
                 <button ng-click="addItem()" type="button" class="btn btn-primary btn-sm"id="sendbt" >Send</button>
-            </div>
+           
                 <!-- x in feed referrs to ng-repeat which mirror an an array at that location. -->
-        <div class="chatbar" ng-app="chatApp" ng-controller="chatCtrl">
-            <button ng-click="addItem()" type="button" class="btn btn-primary btn-sm"id="sendbt" >Send</button>
                 <div class="form-group" ng-app="chatApp" ng-controller="chatCtrl">
                     <input ng-model="chatMe" class="form-control input-sm" id="inputsm" type="text">
+					
+        <div class="chatbar" ng-app="chatApp" ng-controller="chatCtrl">
+            <button ng-click="addItem()" type="button" class="btn btn-primary btn-sm"id="sendbt" >Send</button>
                 </div>
-        </div>
+				 </div>
+       
     </div> <!--Client -->
     <div class="URL" ng-app="myApp" ng-controller="myCtrl">
         <p>The url of this page is:</p>
