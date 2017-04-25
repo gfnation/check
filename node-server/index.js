@@ -12,6 +12,9 @@ app.get("/", function(req, res){
 app.get("/t/:test_id", function(req, res){
 	db_test.multi_test(req, res);
 });
+app.put("/t/:test_id", function(req, res){
+	db_test.multi_test(req, res);
+});
 
 app.get("/invited.html", function(request, response) {
   //response.end("Welcome to the invited page!");
