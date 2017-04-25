@@ -33,39 +33,28 @@
         <!-- ng-repeat="x in feed" -->
         <!-- ng-model="chatMe" -->
         <!-- ng-click="???" -->
-            <div class="msg" ng-app="chatApp" ng-controller="chatCtrl">
-                
-            <li class="list-group-item">First item</li>
-            <li class="list-group-item">2nd item</li>
-            <li class="list-group-item">3rd</li>
-            <li class="list-group-item">4th</li>
-            <li class="list-group-item">5th </li>
-            <li class="list-group-item">6th </li>
-            <li class="list-group-item">7th</li>
-            <li class="list-group-item">8th</li>
-            <li class="list-group-item">9th item</li>
-            <li class="list-group-item">10th</li>
-            <li class="list-group-item">11th item</li>
-            <li class="list-group-item">12th</li>
-            <li class="list-group-item">13th</li>
-            <li class="list-group-item">14th</li>
-            <li class="list-group-item">15th</li>
-            <li class="list-group-item">16th</li>
-            <li class="list-group-item">17th</li>
-            <li class="list-group-item">18th</li>
-            <li class="list-group-item" ng-repeat="x in feed">{{x}}</li>
-                
-                
-               <input ng-model="chatMe" class="form-control input-sm" id="inputsm" type="text"> 
-                <button ng-click="addItem()" type="button" class="btn btn-primary btn-sm"id="sendbt" >Send</button>
-            </div>
-                <!-- x in feed referrs to ng-repeat which mirror an an array at that location. -->
-        <div class="chatbar" ng-app="chatApp" ng-controller="chatCtrl">
-            <button ng-click="addItem()" type="button" class="btn btn-primary btn-sm"id="sendbt" >Send</button>
-                <div class="form-group" ng-app="chatApp" ng-controller="chatCtrl">
-                    <input ng-model="chatMe" class="form-control input-sm" id="inputsm" type="text">
-                </div>
+            <div class="msg" id="App" ng-app="chatApp" ng-controller="chatCtrl">
+                <li class="list-group-item">First item</li>
+                <li class="list-group-item" ng-repeat="x in feed track by $index" >{{x}}</li>
+         
+                    <input ng-model="chatMe" type="text" class="form-control input-sm" id="inputsm"> 
+
+                  <button ng-click="addItem()" type="button" class="btn btn-primary btn-sm"id="sendbt" >Send</button>
+
+                  
+
+                   
         </div>
+                 
+
+            
+                <!-- x in feed referrs to ng-repeat which mirror an an array at that location. -->
+        <!-- <div class="chatbar" ng-app="chatApp" ng-controller="chatCtrl">
+               <input ng-model="chatMe" class="form-control input-sm" id= "inputsm" type="text"> 
+
+               <button ng-click="addItem()" type="button" class="btn btn-primary btn-sm"id="sendbt">Send</button>
+        </div> -->
+        
     </div> <!--Client -->
     <div class="URL" ng-app="myApp" ng-controller="myCtrl">
         <p>The url of this page is:</p>
@@ -84,6 +73,7 @@
         .URL{
             margin: auto;
             text-align: center;
+            padding-top: 50px;
             }
         #container{
             
@@ -95,8 +85,8 @@
                 }
         .msg{
             width:75%;
-            min-height:700px;
-            max-height:700px;
+            min-height:200px;
+            max-height:200px;
             overflow-y:scroll;
             display:inline-block;
             
@@ -110,16 +100,25 @@
             display:inline-block;
             float:left;  
             }
-        #sendbt
+         #sendbt
         {
             width:10%;
             display:inline-block;
-            float:left;
-            padding-right:10px;
+            float:right;
+            padding-left:3px;
+            position: fixed;
+            bottom: 400px; 
+            right: 741px;
+            overflow: hidden;
         }
         #inputsm
         {
-            width:89%;
+            width:45%;
+            bottom: 0;
+            position: fixed;
+            bottom: 400px; 
+            right: 170px;
+            overflow: hidden;
         }
     </style>
         <!-- ng-app="chatApp" -->
@@ -144,7 +143,11 @@ app.controller("chatCtrl", function($scope) {
         $scope.feed.push($scope.chatMe);
     }    
 });
-         
+
+
+
+
+
 </script>
     
 
