@@ -134,47 +134,50 @@ app.controller('myCtrl', function($scope, $location) {
         */
         
         
-var app = angular.module("chatApp", []); 
-app.controller("chatCtrl", function($scope) {
-    $scope.feed = ["Some Juice"];
+var app = angular.module("sendApp", []); 
+app.controller("chatCtrl", function($scope,$http) {
+    $scope.feed = ["Angular is up"];
     $scope.addItem = function () {
         $scope.feed.push($scope.chatMe);
+        
+    $scope.submit= function(){
+    console.log('Clicked submit');
+        
+    var datURL = 'http://localhost:8080/t/send_message?c_id=fb0250eb8d439defa91d2433e06f3dec&source=src&message='
+    var datScope = $scope.chatMe
+    var datSource =0;
+    var datId=0;    
+    
+  
+        $http({
+        url:  datURL.concat(datScope),
+        method: 'PUT',
+        data: $scope.data
+        })
+        //Callback
+        .then(function (httpResponse) { 
+        console.log('response:', httpResponse);
+        })
+        
+        
+   }
+    
+    // Submits feed using send_message method, done as a post within the angular $scope.data
+        
+    
+    //"CORS" might need to be necessary to fully test this environment, it is a useful chrome extension
+    
+    //'fb0250eb8d439defa91d2433e06f3dec'
+   
+    
     }    
 });
-         
-$scope.submit= function(){
-console.log('clicked submit');
-
-var datURL = 'http://localhost:8080/t/send_message?c_id=fb0250eb8d439defa91d2433e06f3dec&source=src&message='
-var datScope = $scope.chatMe
-
-
-$http({
-url: datURL.concat(datScope),
-method: 'PUT',
-data: $scope.data
-})
-.then(function (httpResponse) {
-console.log('response:', httpResponse);
-})
-}// Submits feed using send_message method, done as a post within the angular $scope.data
-
-
-//"CORS" might need to be necessary to fully test this environment, it is a useful chrome extension
-
-//'fb0250eb8d439defa91d2433e06f3dec'
-
-
-} 
-});
-
-
-
+  
 var app = angular.module('upApp', []);
 app.controller('myCtrl', function($scope,$http) {
-
+  
 });
-
+                
 </script>
     
 
