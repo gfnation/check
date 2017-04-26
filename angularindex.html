@@ -132,8 +132,13 @@ app.controller('myCtrl', function($scope, $location) {
     $scope.myUrl = $location.absUrl();
 });         
         */
+  
+    var datURL = 'http://localhost:8080/t/send_message?c_id=fb0250eb8d439defa91d2433e06f3dec&source=src&message='
+   //We need to passs the URL in pieces. To give a unique message $scope.chatMe is concatenated to the rest of the URL.
+    
         
-        
+      
+   
 var app = angular.module("sendApp", []); 
 app.controller("chatCtrl", function($scope,$http) {
     $scope.feed = ["Angular is up"];
@@ -141,24 +146,31 @@ app.controller("chatCtrl", function($scope,$http) {
         $scope.feed.push($scope.chatMe);
         
     $scope.submit= function(){
-    console.log('Clicked submit');
+    console.log('Clicked Submit');
+        var datScope = $scope.chatMe
         
-    var datURL = 'http://localhost:8080/t/send_message?c_id=fb0250eb8d439defa91d2433e06f3dec&source=src&message='
-    var datScope = $scope.chatMe
-    var datSource =0;
-    var datId=0;    
-    
-  
+        
         $http({
         url:  datURL.concat(datScope),
         method: 'PUT',
         data: $scope.data
         })
-        //Callback
+        .then(function (httpResponse) { 
+        console.log('response:', httpResponse);
+        })
+  
+        
+        $http({
+        url:  'http://localhost:8080/t/get_messages?c_id=CONVERSATIONID&source=SOURCEUSERID&message=RAWMESSAGE',
+        method: 'GET',
+        data: $scope.data
+        })
         .then(function (httpResponse) { 
         console.log('response:', httpResponse);
         })
         
+        
+        //http://localhost:8080/t/get_messages?c_id=CONVERSATIONID&source=SOURCEUSERID&message=RAWMESSAGE
         
    }
     
@@ -169,10 +181,9 @@ app.controller("chatCtrl", function($scope,$http) {
     
     //'fb0250eb8d439defa91d2433e06f3dec'
    
-    
     }    
 });
-  
+      
 var app = angular.module('upApp', []);
 app.controller('myCtrl', function($scope,$http) {
   
