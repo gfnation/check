@@ -1,6 +1,8 @@
 var mysql = require("mysql");
 var util = require("../utils/util.js");
 
+var enc = require("crypto-js");
+
 /*
 	Loads all the messages associated with a conversation_id
 */
@@ -47,11 +49,14 @@ exports.save_message = function(connection, conversation_id, source_id, raw_mess
 };
 
 function encrypt(string){
-	return string;
+	var encrypted = CryptoJS.AES.encrypt(string, 'random stuff');
+	return encrypted;
 }
 
 function decrypt(string){
-	return string;
+	var bytes = Crypto.AES.decrypt(string.toString(), 'random stuff');
+	var plain = bytes.toString(Crypto.enc.Utf8);
+	return plain;
 }
 
 
