@@ -1,0 +1,99 @@
+
+body { 
+    background: linear-gradient(to right, #FAFFD1, #A1FFCE); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+font-family: 'Roboto Condensed', sans-serif;
+}
+
+#userBox {
+    text-align: center;
+}
+
+
+.URL {
+    margin: auto;
+    text-align: center;
+    padding-top: 50px;
+}
+
+#container {
+
+}
+
+#client {
+    width: 80%;
+    height: 50%;
+    margin: auto;
+    
+}
+
+.msg {
+    min-height: 500px;
+    max-height: 200px;
+    overflow-y: scroll;
+    display: inline-block;
+    background-color: #f8f8f8;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 100vh;
+    display: flex;
+}
+
+.header {
+
+}
+
+.msg-combined {
+    width: 100%;
+}
+
+.userList {
+    width: 20%;
+    display: inline-block;
+    float: right;
+}
+
+.flexForm {
+    font-size: 0;
+    width: 100%;
+    display:block;
+    float:right;
+}
+
+#sendbt {
+    width: 20%;
+    display:inline-block;
+    float: inherit;
+
+}
+
+#inputsm {
+    display: inline-block;
+    width: 80%;
+    bottom: 0;
+    right:auto;
+}
+
+#msgID .list-group-item{
+    font-size: 15px;
+}
+
+.list-group-item:hover{
+    background: lightblue;
+}
+
+.list-group-item2 {
+
+    color: #4582a1;
+    border-spacing: 20px #c7eafc;
+    list-style: none;
+    background: #c7eafc;
+    font-size: 18px;
+    margin-top: 50px;
+    padding: 15px;
+}
+
+.glyphicon.glyphicon-off {
+
+    float: left;
+}

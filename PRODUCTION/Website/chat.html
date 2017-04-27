@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html ng-app="chat_app">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">  
+    <link rel="stylesheet" href="css/main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Oswald:300|Roboto+Condensed" rel="stylesheet">
+</head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+<script src="js/angular-chat.js"></script>
+
+<title>ChequedIn Chat Client</title>
+<style>
+    </style>
+        <body>    
+        <div id="container">
+            <div id="client" ng-controller="main_controller">
+                <div class='header'>
+                    <li class="list-group-item" style="text-align:center;">Chat: {{active_target_display_name}}
+                        <a href="#">
+                            <span class="glyphicon glyphicon-off"></span>
+                        </a>
+                    </li>
+                </div>
+            
+
+                <div class="userList">
+                    <li class="list-group-item" ng-repeat="user in userlist" ng-click="set_conversation(user.user_id)">
+                        {{user.display_name}}
+                    </li>
+                </div>
+                
+                <div class="msg-combined">
+                    <div class="msg">
+                        <li class="list-group-item2" ng-repeat="element in feed">{{element.source_name}}: {{element.message}} </li>
+                    </div>
+                    
+                    <form class="flexForm" ng-submit="send_message()">
+                        <input placeholder="Type to chat here..." ng-model="chat_text" type="text" class="form-control input-sm" id="inputsm"><button type="submit" class="btn btn-primary btn-sm-12" id="sendbt">Send</button>
+                    </form>
+                </div>
+                
+
+
+            </div>
+
+        </div>
+            
+    </body>
+    
+    
+</html>
