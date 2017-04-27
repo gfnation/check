@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> 
-    </head>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-route.min.js">  
-        </script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-route.min.js">
+</script>
 
     
-    <title>ChequedIn Client</title>
+    <title>It's a Start</title>
     
 <body>
 <!-- The hardest part about this file is what needs to be in Angular and what doesnt.
@@ -41,23 +40,19 @@
         <!-- ng-repeat="x in feed" -->
         <!-- ng-model="chatMe" -->
         <!-- ng-click="???" -->
-             <div class="msg" id="App" ng-app="sendApp" ng-controller="chatCtrl">
-                <li class="list-group-item2">First item</li>
-                <li class="list-group-item2" ng-repeat="x in feed track by $index" >{{x}}</li>
-                
-                    <form ng-submit="enter()">
-                          <input ng-model="chatMe" type="text" class="form-control input-sm" id="inputsm"> 
-                    <button type="submit" class="btn btn-primary btn-sm-12"id="sendbt">Send</button>
-                  
-                    </form>
-                
+            <div class="chatWindow">
+                <div class="msg" id="App" ng-app="sendApp" ng-controller="chatCtrl">
+                    <li class="list-group-item2">First item</li>
+                    <li class="list-group-item2" ng-repeat="x in feed track by $index" >{{x}}</li>
+                        <div class="bottom">
+                            <form ng-submit="enter()">
+                                <input ng-model="chatMe" type="text" class="form-control input-sm" id="inputsm"> 
+                                <button type="submit" class="btn btn-primary btn-sm-12"id="sendbt">Send</button>
+                            </form>
+                        </div>
+                </div>
             </div>
-
-                    
-                  
-
-                   
-        </div>
+    </div>
                  
 
             
@@ -97,19 +92,37 @@
             height:50%;
             margin:auto;
                 }
+        .chatWindow{
+            
+            height: 400px;
+            overflow: scroll;
+        }
         .msg{
-            width:75%;
-            min-height:500px;
-            max-height:200px;
-            overflow-y:scroll;
-            display:inline-block;
+            width:100%;
+            min-height:400px;
+            overflow:scroll;
+            /*display:inline-block;*/
             background-color: #f8f8f8;
-            justify-content: space-between;
+            /*justify-content: space-between;
             flex-direction: column;
-            height: 100vh;
-            display: flex;
-  
+            height: 100vh;*/
+            /*display: flex;
+  */
             }
+        .msg .msg{
+            clear: both;
+            overflow: hidden;
+            margin-bottom: 20px;
+
+        }
+        .msg .msg .text_wrapper {
+            display: inline-block;
+            padding: 5px;
+            border-radius: 6px;
+            width: calc(100% - 85px);
+            min-width: 100px;
+            position: relative;
+        }
         .header{
             
                 }
@@ -118,33 +131,67 @@
             display:inline-block;
             float:left;  
             }
+        .bottom{
+            position: relative;
+            width: 53.25%;
+            background-color: #000;
+            padding: 20px 20px;
+            position: absolute;
+            
+        }
+        .bottom .msg_wrapper: {
+           /* display: inline-block;*/
+            height: 50px;
+            border: 1px solid #bcbdc0;
+            width: calc(100% - 160px);
+            position: relative;
+            padding: 0 20px;
+        }
+        .bottom_wrapper .msg_wrapper .msg_input {
+        border: none;
+        height: 100%;
+        box-sizing: border-box;
+        width: calc(100% - 40px);
+        position: absolute;
+        outline-width: 0;
+        color: gray;
+        }
          #sendbt
-        {
+        { 
+          
            
-            justify-content: flex-end;
+           height: 50px;
+           display: inline-block;
+           text-align: center;
+           float: left;
+
+            /*justify-content: flex-end;
             display: flex;
             width:10%;
             display:inline-block;
             float:right;
             padding-left:3px;
-            position: fixed;
+            position: relative;
             bottom:100px; 
             right: 200px;
             overflow: hidden;
-            border-radius:0;
+            border-radius:0;*/
             
         }
         #inputsm
         {
-            width:45%;
+            
+            /*bottom: 0;*/
+
+           /* width:45%;
             float:right;
             bottom: 0;
-            position: fixed;
+            position: relative;
             bottom: 100px; 
             right: 300px;
             overflow: hidden;
             justify-content: flex-end;
-            display: flex;
+            display: flex;*/
            
         }
         .list-group-item2
@@ -237,6 +284,8 @@ app.controller("myCtrl", function($scope,$http) {
   
 });
 
+
+             
 </script>
     
 
@@ -255,4 +304,3 @@ services
 Data bindings, when one changes, the other changes as well
 
 -->
-
