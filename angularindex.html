@@ -4,6 +4,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> 
     </head>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-route.min.js">
+</script>
+
     
     <title>It's a Start</title>
     
@@ -36,12 +39,16 @@
         <!-- ng-model="chatMe" -->
         <!-- ng-click="???" -->
 <<<<<<< HEAD
+<<<<<<< HEAD
              <div class="msg" id="App" ng-app="chatApp" ng-controller="chatCtrl">
 =======
                 
             
               <div class="msg" id="App" ng-app="chatApp" ng-controller="chatCtrl">
 >>>>>>> master
+=======
+             <div class="msg" id="App" ng-app="sendApp" ng-controller="chatCtrl">
+>>>>>>> origin/node+db
                 <li class="list-group-item">First item</li>
                 <li class="list-group-item" ng-repeat="x in feed track by $index" >{{x}}</li>
          
@@ -196,11 +203,13 @@ app.controller("chatCtrl", function($scope,$http) {
     }    
 });
       
-var app = angular.module('upApp', []);
-app.controller('myCtrl', function($scope,$http) {
+var app = angular.module("upApp", []);
+app.controller("myCtrl", function($scope,$http) {
   
 });
-                
+
+
+             
 </script>
     
 
