@@ -21,7 +21,12 @@
     
     <div id="client">
         <div class='header'>
-            <li class="list-group-item" style="text-align:center;">Header</li>   
+             
+            <li class="list-group-item" style="text-align:center;">Header
+                <a href="#">
+                    <span class="glyphicon glyphicon-off"></span>
+                </a>
+            </li>   
             
         </div>
     
@@ -37,13 +42,18 @@
         <!-- ng-model="chatMe" -->
         <!-- ng-click="???" -->
              <div class="msg" id="App" ng-app="sendApp" ng-controller="chatCtrl">
-                <li class="list-group-item">First item</li>
-                <li class="list-group-item" ng-repeat="x in feed track by $index" >{{x}}</li>
-         
-                    <input ng-model="chatMe" type="text" class="form-control input-sm" id="inputsm"> 
+                <li class="list-group-item2">First item</li>
+                <li class="list-group-item2" ng-repeat="x in feed track by $index" >{{x}}</li>
+                
+                    <form ng-submit="enter()">
+                          <input ng-model="chatMe" type="text" class="form-control input-sm" id="inputsm"> 
+                    <button type="submit" class="btn btn-primary btn-sm-12"id="sendbt">Send</button>
+                  
+                    </form>
+                
+            </div>
 
-                  <button ng-click="addItem()" type="button" class="btn btn-primary btn-sm"id="sendbt" >Send</button>
-
+                    
                   
 
                    
@@ -58,12 +68,14 @@
         </div> -->
         
     </div> <!--Client -->
-    <div class="URL" ng-app="myApp" ng-controller="myCtrl">
+
+    <!-- <div class="URL" ng-app="myApp" ng-controller="myCtrl">
         <p>The url of this page is:</p>
         <h3>{{myUrl}}</h3>
-        
+         -->
         <!--Useful, but this is just to check if angular is working -->
-    </div>
+    <!-- </div> -->
+
 </div> <!--Container -->
     
     
@@ -87,11 +99,16 @@
                 }
         .msg{
             width:75%;
-            min-height:200px;
+            min-height:500px;
             max-height:200px;
             overflow-y:scroll;
             display:inline-block;
-            
+            background-color: #f8f8f8;
+            justify-content: space-between;
+            flex-direction: column;
+            height: 100vh;
+            display: flex;
+  
             }
         .header{
             
@@ -103,23 +120,48 @@
             }
          #sendbt
         {
+           
+            justify-content: flex-end;
+            display: flex;
             width:10%;
             display:inline-block;
             float:right;
             padding-left:3px;
             position: fixed;
-            bottom: 400px; 
-            right: 741px;
+            bottom:100px; 
+            right: 200px;
             overflow: hidden;
+            border-radius:0;
+            
         }
         #inputsm
         {
             width:45%;
+            float:right;
             bottom: 0;
             position: fixed;
-            bottom: 400px; 
-            right: 170px;
+            bottom: 100px; 
+            right: 300px;
             overflow: hidden;
+            justify-content: flex-end;
+            display: flex;
+           
+        }
+        .list-group-item2
+        { 
+            
+            color: #4582a1;
+            border-spacing: 20px #c7eafc;
+            list-style: none;
+            background: #c7eafc;
+            font-size: 18px;
+            margin-top: 50px;
+            padding:15px;
+        }
+        .glyphicon.glyphicon-off
+        {
+            
+            float: left;
         }
     </style>
         <!-- ng-app="chatApp" -->
@@ -145,9 +187,12 @@ app.controller('myCtrl', function($scope, $location) {
 var app = angular.module("sendApp", []); 
 app.controller("chatCtrl", function($scope,$http) {
     $scope.feed = ["Angular is up"];
-    $scope.addItem = function () {
+    $scope.enter = function () {
+        if(this.chatMe){
         $scope.feed.push($scope.chatMe);
-        
+        $scope.chatMe = " ";
+        //allows to submit using enter key
+        }
     $scope.submit= function(){
     console.log('Clicked Submit');
         var datScope = $scope.chatMe
@@ -191,6 +236,7 @@ var app = angular.module("upApp", []);
 app.controller("myCtrl", function($scope,$http) {
   
 });
+
 
 
              
