@@ -1,5 +1,9 @@
 # README
 
+#!!!
+#THE FINAL WORKING PROJECT IS IN THE PRODUCTION FOLDER
+!!!
+
 418Y Software Engineering Final Project
 
 Requirements:
