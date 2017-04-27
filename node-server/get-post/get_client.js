@@ -78,7 +78,7 @@ exports.core_get = function(req, res){
 		execute.create_conversation(temporary_user1, temporary_user2).then(function(result){
 			res.send(JSON.stringify({conversation_id : result}, null, 2));
 		});
-	} else if {
+	} else{
 		res.send(JSON.stringify({status: false}, null, 2));
 	}
 }

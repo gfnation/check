@@ -49,13 +49,20 @@ exports.save_message = function(connection, conversation_id, source_id, raw_mess
 };
 
 function encrypt(string){
-	var encrypted = CryptoJS.AES.encrypt(string, 'random stuff');
+	var str = string.toString();
+	var encrypted ="";
+	var key ="id";
+	for(var i=0;i<string.length;i++)
+	{
+		var curr_char=  str.charCodeAt(i)
+		var char_switch= curr_char ^ key;
+		encrypted = encrypted +String.fromCharCode(char_switch);
+	}
 	return encrypted;
 }
 
 function decrypt(string){
-	var bytes = Crypto.AES.decrypt(string.toString(), 'random stuff');
-	var plain = bytes.toString(Crypto.enc.Utf8);
+	var plain = encrypt(string.toString());
 	return plain;
 }
 
