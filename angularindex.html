@@ -40,24 +40,21 @@
         <!-- ng-repeat="x in feed" -->
         <!-- ng-model="chatMe" -->
         <!-- ng-click="???" -->
-            <div class="chatWindow">
-             <div class="msg" id="App" ng-app="sendApp" ng-controller="chatCtrl">
-                <li class="list-group-item2">First item</li>
-                <li class="list-group-item2" ng-repeat="x in feed track by $index" >{{x}}</li>
-                <div class="bottom">
-                    <form ng-submit="enter()">
-                          <input ng-model="chatMe" type="text" class="form-control input-sm" id="inputsm"> 
-                    <button type="submit" class="btn btn-primary btn-sm-12"id="sendbt">Send</button>
-                  
-                    </form>
+            <!-- <div class="chatWindow"> -->
+                <div class="msg" id="App" ng-app="sendApp" ng-controller="chatCtrl">
+                    <div>
+                    <ul class="messages">
+                    <li class="list-group-item2" ng-repeat="x in feed track by $index" >{{x}}</li></ul>
+                    </div>
+                        <div class="bottom">
+                            <form ng-submit="enter()">
+                                <button type="submit" class="btn btn-primary btn-sm-12"id="sendbt">Send</button>
+                                <input ng-model="chatMe" type="text" class="form-control input-sm" id="inputsm">  
+                            </form>
+                        </div>
+                    </div>
+            <!-- </div> -->
                 </div>
-             </div>
-
-            </div>
-                  
-
-                   
-        </div>
                  
 
             
@@ -76,7 +73,7 @@
         <!--Useful, but this is just to check if angular is working -->
     <!-- </div> -->
 
-</div> <!--Container -->
+ <!--Container -->
     
     
 
@@ -97,37 +94,55 @@
             height:50%;
             margin:auto;
                 }
-        .chatWindow{
-            
-            height: 400px;
-            overflow: scroll;
-        }
         .msg{
-            width:100%;
+            position: absolute;
+            width: 53.5%;
+            max-width: 700px;
+            height: 500px;
+            background-color: #fff;
+            left: 45%;
+            top: 24.50%;
+            transform: translateX(-25%) translateY(-25%);
+            background-color: #f8f8f8;
+            overflow: hidden;
+            border-radius:5px;
+            /*width:100%;
             min-height:400px;
             overflow:scroll;
+            background-color: #f8f8f8;*/
+
             /*display:inline-block;*/
-            background-color: #f8f8f8;
+            
             /*justify-content: space-between;
             flex-direction: column;
             height: 100vh;*/
-            /*display: flex;
-  */
+            /*display: flex;*/
             }
-        .msg .msg{
+        .messages
+        { 
+            
+            position: relative;
+            list-style: none;
+            padding: 10px 10px 0 10px;
+            margin: 0;
+            height: 250px;
+            overflow: scroll;
+        }
+        .messages .message{
             clear: both;
             overflow: hidden;
             margin-bottom: 20px;
+            opacity: 0;
 
         }
-        .msg .msg .text_wrapper {
-            display: inline-block;
-            padding: 5px;
-            border-radius: 6px;
-            width: calc(100% - 85px);
-            min-width: 100px;
-            position: relative;
+        .list-group-item2{
+            font-size: 18px;
+            padding-left: 10px;
+            background: #19B5FE;
+            margin: 15px;
+            font-color: #22313F;
         }
+        
         .header{
             
                 }
@@ -138,56 +153,39 @@
             }
         .bottom{
             position: relative;
-            width: 53.25%;
-            background-color: #000;
+            width: 100%;
+            background-color: #1E8BC3;
             padding: 20px 20px;
             position: absolute;
+            bottom: 0;
             
         }
-        .bottom .msg_wrapper: {
-           /* display: inline-block;*/
+        .bottom_wrapper .message_input_wrapper {
+            display: inline-block;
             height: 50px;
+            border-radius: 25px;
             border: 1px solid #bcbdc0;
             width: calc(100% - 160px);
             position: relative;
             padding: 0 20px;
         }
-        .bottom_wrapper .msg_wrapper .msg_input {
-        border: none;
-        height: 100%;
-        box-sizing: border-box;
-        width: calc(100% - 40px);
-        position: absolute;
-        outline-width: 0;
-        color: gray;
-        }
-         #sendbt
-        { 
-          
-           
-           height: 50px;
-           display: inline-block;
-           text-align: center;
-           float: left;
 
-            /*justify-content: flex-end;
-            display: flex;
-            width:10%;
-            display:inline-block;
-            float:right;
-            padding-left:3px;
-            position: relative;
-            bottom:100px; 
-            right: 200px;
-            overflow: hidden;
-            border-radius:0;*/
+        .bottom_wrapper .message_input_wrapper .message_input{
             
+            border: none;
+            height: 100%;
+            box-sizing: border-box;
+            width: calc(100% - 40px);
+            position: absolute;
+            outline-width: 0;
+            color: gray;
         }
         #inputsm
         {
             
+            width: 60%;
+            height: 30px;
             /*bottom: 0;*/
-
            /* width:45%;
             float:right;
             bottom: 0;
@@ -199,17 +197,16 @@
             display: flex;*/
            
         }
-        .list-group-item2
+         #sendbt
         { 
+           text-align: center;
+           background-color:#3A539B;
+           height: 30px;
+           float: left;
             
-            color: #4582a1;
-            border-spacing: 20px #c7eafc;
-            list-style: none;
-            background: #c7eafc;
-            font-size: 18px;
-            margin-top: 50px;
-            padding:15px;
         }
+        
+        
         .glyphicon.glyphicon-off
         {
             
@@ -309,4 +306,3 @@ services
 Data bindings, when one changes, the other changes as well
 
 -->
-

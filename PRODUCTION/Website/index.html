@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!-- saved from url=(0040)http://getbootstrap.com/examples/signin/ -->
+<html lang="en" ng-app="chat_app">
+<head>
+    <title>Index.js:Home</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/login.css">
+
+</head>
+    
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+<script src="js/angular-login.js"></script>
+
+<body ng-controller="login_controller">
+<div id="miracle-grow-gradient">
+    <div class="container">
+        <h3>Login</h3>
+        <form>
+            <div><input ng-model="username_field" type="text" placeholder="Username"></div>
+            <div><input ng-model="password_field" type="password" placeholder="Password"></div>
+            <input type="button" class="btn btn-default btn-lg active" value="Sign in" ng-click="login()">
+        </form>
+        
+        <a href="./invited.html" class="btn btn-default btn-lg active" role="button">Sign-Up</a>
+    </div>
+</div>
+</body>
+</html>
