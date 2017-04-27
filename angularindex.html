@@ -4,6 +4,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> 
     </head>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-route.min.js">
+</script>
+
     
     <title>It's a Start</title>
     
@@ -35,9 +38,17 @@
         <!-- ng-repeat="x in feed" -->
         <!-- ng-model="chatMe" -->
         <!-- ng-click="???" -->
+<<<<<<< HEAD
+<<<<<<< HEAD
+             <div class="msg" id="App" ng-app="chatApp" ng-controller="chatCtrl">
+=======
                 
             
               <div class="msg" id="App" ng-app="chatApp" ng-controller="chatCtrl">
+>>>>>>> master
+=======
+             <div class="msg" id="App" ng-app="sendApp" ng-controller="chatCtrl">
+>>>>>>> origin/node+db
                 <li class="list-group-item">First item</li>
                 <li class="list-group-item" ng-repeat="x in feed track by $index" >{{x}}</li>
          
@@ -55,7 +66,10 @@
                 <!-- x in feed referrs to ng-repeat which mirror an an array at that location. -->
         <!-- <div class="chatbar" ng-app="chatApp" ng-controller="chatCtrl">
                <input ng-model="chatMe" class="form-control input-sm" id= "inputsm" type="text"> 
+<<<<<<< HEAD
+=======
 
+>>>>>>> master
                <button ng-click="addItem()" type="button" class="btn btn-primary btn-sm"id="sendbt">Send</button>
         </div> -->
         
@@ -98,7 +112,6 @@
         .header{
             
                 }
-
         .userList{
             width:24%;
             display:inline-block;
@@ -138,16 +151,65 @@ app.controller('myCtrl', function($scope, $location) {
     $scope.myUrl = $location.absUrl();
 });         
         */
+  
+    var datURL = 'http://localhost:8080/t/send_message?c_id=fb0250eb8d439defa91d2433e06f3dec&source=src&message='
+   //We need to passs the URL in pieces. To give a unique message $scope.chatMe is concatenated to the rest of the URL.
+    
         
-        
-var app = angular.module("chatApp", []); 
-app.controller("chatCtrl", function($scope) {
-    $scope.feed = ["Some Juice"];
+      
+   
+var app = angular.module("sendApp", []); 
+app.controller("chatCtrl", function($scope,$http) {
+    $scope.feed = ["Angular is up"];
     $scope.addItem = function () {
         $scope.feed.push($scope.chatMe);
+        
+    $scope.submit= function(){
+    console.log('Clicked Submit');
+        var datScope = $scope.chatMe
+        
+        
+        $http({
+        url:  datURL.concat(datScope),
+        method: 'PUT',
+        data: $scope.data
+        })
+        .then(function (httpResponse) { 
+        console.log('response:', httpResponse);
+        })
+  
+        
+        $http({
+        url:  'http://localhost:8080/t/get_messages?c_id=CONVERSATIONID&source=SOURCEUSERID&message=RAWMESSAGE',
+        method: 'GET',
+        data: $scope.data
+        })
+        .then(function (httpResponse) { 
+        console.log('response:', httpResponse);
+        })
+        
+        
+        //http://localhost:8080/t/get_messages?c_id=CONVERSATIONID&source=SOURCEUSERID&message=RAWMESSAGE
+        
+   }
+    
+    // Submits feed using send_message method, done as a post within the angular $scope.data
+        
+    
+    //"CORS" might need to be necessary to fully test this environment, it is a useful chrome extension
+    
+    //'fb0250eb8d439defa91d2433e06f3dec'
+   
     }    
 });
-         
+      
+var app = angular.module("upApp", []);
+app.controller("myCtrl", function($scope,$http) {
+  
+});
+
+
+             
 </script>
     
 
