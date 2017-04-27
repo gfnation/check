@@ -1,0 +1,7 @@
+http://localhost:8080/t/create_user?name=DISPLAYNAME&user=USERNAME&pw=PASSWORD&type=ACCOUNTTYPE
+
+http://localhost:8080/t/send_message?c_id=CONVERSATIONID&source=SOURCEUSERID&message=RAWMESSAGE
+
+http://localhost:8080/t/user_login?user=USERNAME&pw=PASSWORD
+
+http://localhost:8080/t/create_conversation?user_id=USERID_ONE&user_id2=USERID_TWO

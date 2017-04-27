@@ -4,6 +4,10 @@ var path = require("path");
 var db_test = require("./tests/db_test.js");
 var mysql_db = require("./database/mysql_db.js");
 var user_auth = require("./database/user_auth.js");
+<<<<<<< HEAD
+=======
+var get_client = require("./get-post/get_client.js");
+>>>>>>> master
 
 app.get("/", function(req, res){
 	res.send("Welcome to the website index. The server is running on port 8080.");
@@ -11,6 +15,16 @@ app.get("/", function(req, res){
 
 app.get("/t/:test_id", function(req, res){
 	db_test.multi_test(req, res);
+<<<<<<< HEAD
+=======
+});
+app.put("/t/:test_id", function(req, res){
+	db_test.multi_test(req, res);
+});
+
+app.get("/core/:req_type", function(req, res){
+	get_client.core_get(req, res);
+>>>>>>> master
 });
 app.put("/t/:test_id", function(req, res){
 	db_test.multi_test(req, res);
