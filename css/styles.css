@@ -1,0 +1,96 @@
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    [class*="col-"] {
+        width: 100%;
+    }
+}
+
+
+
+
+
+.URL {
+    margin: auto;
+    text-align: center;
+    padding-top: 50px;
+}
+
+#container {
+
+}
+
+#client {
+    width: 70%;
+    height: 50%;
+    margin: auto;
+}
+
+.msg {
+    width: 75%;
+    min-height: 500px;
+    max-height: 200px;
+    overflow-y: scroll;
+    display: inline-block;
+    background-color: #f8f8f8;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 100vh;
+    display: flex;
+
+}
+
+.header {
+
+}
+
+.userList {
+    width: 24%;
+    display: inline-block;
+    float: left;
+}
+
+#sendbt {
+
+    justify-content: flex-end;
+    display: flex;
+    width: 10%;
+    display: inline-block;
+    float: right;
+    padding-left: 3px;
+    position: fixed;
+    bottom: 100px;
+    right: 200px;
+    overflow: hidden;
+    border-radius: 0;
+
+}
+
+#inputsm {
+    width: 45%;
+    float: right;
+    bottom: 0;
+    position: fixed;
+    bottom: 100px;
+    right: 300px;
+    overflow: hidden;
+    justify-content: flex-end;
+    display: flex;
+
+}
+
+.list-group-item2 {
+
+    color: #4582a1;
+    border-spacing: 20px #c7eafc;
+    list-style: none;
+    background: #c7eafc;
+    font-size: 18px;
+    margin-top: 50px;
+    padding: 15px;
+}
+
+.glyphicon.glyphicon-off {
+
+    float: left;
+}
