@@ -1,0 +1,124 @@
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    [class*="col-"] {
+        width: 100%;
+    }
+}
+
+
+
+
+
+.URL {
+    margin: auto;
+    text-align: center;
+    padding-top: 50px;
+}
+
+#container {
+
+}
+
+#client {
+    width: 70%;
+    height: 50%;
+    margin: auto;
+}
+
+.msg {
+    position: absolute;
+            width: 53.5%;
+            max-width: 700px;
+            height: 500px;
+            background-color: #fff;
+            left: 45%;
+            top: 24.50%;
+            transform: translateX(-25%) translateY(-25%);
+            background-color: #f8f8f8;
+            overflow: hidden;
+            border-radius:5px;
+
+}
+.messages
+        { 
+            
+            position: relative;
+            list-style: none;
+            padding: 10px 10px 0 10px;
+            margin: 0;
+            height: 250px;
+            overflow: scroll;
+        }
+        .messages .message{
+            clear: both;
+            overflow: hidden;
+            margin-bottom: 20px;
+            opacity: 0;
+
+        }
+        .list-group-item .list-group-item{
+            font-size: 18px;
+            padding-left: 10px;
+            background: #19B5FE;
+            margin: 15px;
+            font-color: #22313F;
+        }
+.header {
+
+}
+
+.userList {
+    width: 24%;
+    display: inline-block;
+    float: left;
+}
+.bottom{
+            position: relative;
+            width: 100%;
+            background-color: #1E8BC3;
+            padding: 20px 20px;
+            position: absolute;
+            bottom: 0;
+            
+        }
+        .bottom_wrapper .message_input_wrapper {
+            display: inline-block;
+            height: 50px;
+            border-radius: 25px;
+            border: 1px solid #bcbdc0;
+            width: calc(100% - 160px);
+            position: relative;
+            padding: 0 20px;
+        }
+
+        .bottom_wrapper .message_input_wrapper .message_input{
+            
+            border: none;
+            height: 100%;
+            box-sizing: border-box;
+            width: calc(100% - 40px);
+            position: absolute;
+            outline-width: 0;
+            color: gray;
+        }
+#sendbt {
+
+    width: 60%;
+            height: 30px;
+
+}
+
+#inputsm {
+    text-align: center;
+           background-color:#3A539B;
+           height: 30px;
+           float: left;
+
+}
+
+
+.glyphicon.glyphicon-off {
+
+    float: left;
+}
